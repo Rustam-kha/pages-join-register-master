@@ -1,0 +1,30 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "contact": "Contact Us"
+  },
+  "loginPage": {
+    "login": "Log in",
+    "joinUs": "Join us",
+    "forgotPassword": "Forgot password?",
+    "or": "or",
+    "email": "Email/Phone number",
+    "emailPlaceholder": "Email/Phone number (without country code)",
+    "password": "Password",
+    "continue": "Continue",
+    "registerPage": {
+      "title": "Welcome to NoOnes",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Password confirmation",
+      "invalid": "Invalid code (optional)",
+      "invalidPlaceholder": "Enter code",
+      "paste": "paste",
+      "tearmsAndPrivacy": {
+        "beforeLink": "By continuing, you acknowledge that you have read and agree to NoOnes's ",
+        "link": "Terms of Service",
+        "afterLink": " and ",
+        "link2": "Privacy Policy"
+      }
+    }
+  }
+}

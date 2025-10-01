@@ -1,0 +1,30 @@
+{
+  "HomePage": {
+    "title": "你好，世界！",
+    "contact": "联系我们"
+  },
+  "loginPage": {
+    "login": "登录",
+    "joinUs": "加入我们",
+    "forgotPassword": "忘记密码？",
+    "or": "或",
+    "email": "邮箱 / 电话号码",
+    "emailPlaceholder": "邮箱/电话号码（不含国家区号）",
+    "password": "密码",
+    "continue": "继续",
+    "registerPage": {
+      "title": "欢迎来到 NoOnes",
+      "confirmPassword": "确认密码",
+      "confirmPasswordPlaceholder": "密码确认",
+      "invalid": "无效的代码（可选）",
+      "invalidPlaceholder": "输入代码",
+      "paste": "粘贴",
+      "tearmsAndPrivacy": {
+        "beforeLink": "继续即表示您已阅读并同意 ",
+        "link": "服务条款",
+        "afterLink": " 和 ",
+        "link2": "隐私政策"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "HomePage": {
+    "title": "Привет, мир!",
+    "contact": "Свяжитесь с нами"
+  },
+  "loginPage": {
+    "login": "Войти",
+    "joinUs": "Присоединяйтесь к нам",
+    "forgotPassword": "Забыли пароль?",
+    "or": "или",
+    "email": "Эл. почта / Номер телефона",
+    "emailPlaceholder": "Эл. почта / Телефон (без кода страны)",
+    "password": "Пароль",
+    "continue": "Продолжить",
+    "registerPage": {
+      "title": "Добро пожаловать в NoOnes",
+      "confirmPassword": "Подтвердите пароль",
+      "confirmPasswordPlaceholder": "Подтверждение пароля",
+      "invalid": "Неверный код (необязательно)",
+      "invalidPlaceholder": "Введите код",
+      "paste": "вставить",
+      "tearmsAndPrivacy": {
+        "beforeLink": "Продолжая, вы подтверждаете, что прочитали и согласны с ",
+        "link": "Условиями использования",
+        "afterLink": " и ",
+        "link2": "Политикой конфиденциальности"
+      }
+    }
+  }
+}

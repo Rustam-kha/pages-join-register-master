@@ -1,0 +1,30 @@
+{
+  "HomePage": {
+    "title": "Mbiŋàŋè!",
+    "contact": "Fɛ́ŋ mbɔ́"
+  },
+  "loginPage": {
+    "login": "Yíŋ mà",
+    "joinUs": "Bàaŋ wɛ́",
+    "forgotPassword": "Bɛ̀ mbɔ́ɔ̀?",
+    "or": "nɔ́",
+    "email": "Ndzɛ̌ mɛ̀lɛ̀ / Fɔ́n ndòŋ",
+    "emailPlaceholder": "Ndzɛ̌ mɛ̀lɛ̀ / Fɔ́n ndòŋ (àbɔ̀ kóòdì ndzɔ̀)",
+    "password": "Mbɔ́ɔ̀",
+    "continue": "Bɔ́ŋ",
+    "registerPage": {
+      "title": "Mbiŋàŋè kɛ̀ NoOnes",
+      "confirmPassword": "Bìŋ mbɔ́ɔ̀",
+      "confirmPasswordPlaceholder": "Bìŋ mbɔ́ɔ̀ mɛ̀",
+      "invalid": "Kódì mbɛ́ŋ (bɔ̀ŋ mbɛ̀)",
+      "invalidPlaceholder": "Fɛ́ŋ kódì",
+      "paste": "fàŋ",
+      "tearmsAndPrivacy": {
+        "beforeLink": "Bɔ́ŋ, ŋwɛ̀ŋ ámbɛ́ŋ kɛ́ wɛ́ nà kɔ̀sɔ̀ kɛ̀ NoOnes ",
+        "link": "Mɛ̀ŋgɛ̀tɔ́ ɔ̀ kɛ̀ nɛ̀",
+        "afterLink": " nɔ́ ",
+        "link2": "Mɛ̀ŋgɛ̀tɔ́ ɔ̀ kɛ̀ ndzɔ̀ŋ"
+      }
+    }
+  }
+}

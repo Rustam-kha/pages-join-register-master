@@ -1,0 +1,30 @@
+{
+  "HomePage": {
+    "title": "Xin chào thế giới!",
+    "contact": "Liên hệ với chúng tôi"
+  },
+  "loginPage": {
+    "login": "Đăng nhập",
+    "joinUs": "Tham gia cùng chúng tôi",
+    "forgotPassword": "Quên mật khẩu?",
+    "or": "hoặc",
+    "email": "Email / Số điện thoại",
+    "emailPlaceholder": "Email/Số điện thoại (không có mã quốc gia)",
+    "password": "Mật khẩu",
+    "continue": "Tiếp tục",
+    "registerPage": {
+      "title": "Chào mừng đến với NoOnes",
+      "confirmPassword": "Xác nhận mật khẩu",
+      "confirmPasswordPlaceholder": "Xác nhận mật khẩu",
+      "invalid": "Mã không hợp lệ (tùy chọn)",
+      "invalidPlaceholder": "Nhập mã",
+      "paste": "dán",
+      "tearmsAndPrivacy": {
+        "beforeLink": "Bằng cách tiếp tục, bạn xác nhận rằng đã đọc và đồng ý với ",
+        "link": "Điều khoản dịch vụ",
+        "afterLink": " và ",
+        "link2": "Chính sách bảo mật"
+      }
+    }
+  }
+}

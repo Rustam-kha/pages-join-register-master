@@ -1,0 +1,30 @@
+{
+  "HomePage": {
+    "title": "¡Hola mundo!",
+    "contact": "Contáctanos"
+  },
+  "loginPage": {
+    "login": "Iniciar sesión",
+    "joinUs": "Únete a nosotros",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "or": "o",
+    "email": "Correo electrónico / Número de teléfono",
+    "emailPlaceholder": "Correo/Teléfono (sin código de país)",
+    "password": "Contraseña",
+    "continue": "Continuar",
+    "registerPage": {
+      "title": "Bienvenido a NoOnes",
+      "confirmPassword": "Confirmar contraseña",
+      "confirmPasswordPlaceholder": "Confirmación de contraseña",
+      "invalid": "Código inválido (opcional)",
+      "invalidPlaceholder": "Introducir código",
+      "paste": "pegar",
+      "tearmsAndPrivacy": {
+        "beforeLink": "Al continuar, reconoces que has leído y aceptas los ",
+        "link": "Términos de servicio",
+        "afterLink": " y ",
+        "link2": "Política de privacidad"
+      }
+    }
+  }
+}
