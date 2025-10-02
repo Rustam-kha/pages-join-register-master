@@ -161,8 +161,7 @@ const LoginForm = ({
                     {item.name}
                   </>
                 }
-                textSize="text-sm font-bold text-[#1D446F]  w-full justify-center flex gap-2"
-                className="w-full cursor-pointer"
+                 className="text-xs text-right font-semibold -mt-1 text-[#1D446F] underline"
               />
             ))}
           </div>
