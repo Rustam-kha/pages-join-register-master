@@ -90,7 +90,6 @@ export default function LocaleSwitcher({ path }: { path: string }) {
         </svg>
       ),
     },
-    // { label: "العربية", value: "ar", flag: <svg width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" fill="#007A3D"/><rect y="4.67" width="20" height="4.66" fill="#FFF"/><rect y="9.33" width="20" height="4.67" fill="#CE1126"/></svg> },
   ];
 
   const currentLocaleData =
@@ -101,40 +100,33 @@ export default function LocaleSwitcher({ path }: { path: string }) {
     setIsOpen(false);
   };
 
-
-  
-return (
-  <>
+  return (
     <div className="relative inline-block">
-      
+      {/* Trigger Button */}
       <button
-        className="bg-transparent text-primary text-xs font-semibold underline outline-none cursor-pointer flex items-center gap-1"
+        className="bg-transparent text-[#1D446F] text-xs font-semibold underline outline-none cursor-pointer flex items-center gap-1"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{currentLocaleData.flag}</span>
         <span>{currentLocaleData.label}</span>
       </button>
 
-     
+      {/* Overlay for mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-40 lg:bg-transparent"
           onClick={() => setIsOpen(false)}
         />
-
       )}
 
-    
+      {/* Dropdown Menu */}
       {isOpen && (
         <div
-          className="
-            absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg z-50
+          className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg z-50
             lg:absolute lg:rounded-xl
-            max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0 max-lg:w-full max-lg:rounded-t-2xl max-lg:shadow-2xl
-          "
+            max-lg:fixed max-lg:bottom-0 max-lg:left-0 max-lg:right-0 max-lg:w-full max-lg:rounded-t-2xl max-lg:shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
-         
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-200">
             <h3 className="text-sm font-semibold text-gray-800">Languages</h3>
             <button
@@ -145,7 +137,6 @@ return (
             </button>
           </div>
 
-         
           <div className="space-y-1 max-h-[250px] overflow-y-auto p-2">
             {locales.map((locale) => (
               <button
@@ -156,7 +147,7 @@ return (
                 }}
                 className={`w-full text-left px-4 py-2 rounded-md flex items-center gap-2 transition-colors ${
                   locale.value === currentLocale
-                    ? "bg-primary text-white"
+                    ? "bg-[#1D446F] text-white"
                     : "hover:bg-gray-100 text-gray-700"
                 }`}
               >
@@ -168,8 +159,5 @@ return (
         </div>
       )}
     </div>
-  </>
-);
-
-
+  );
 }
