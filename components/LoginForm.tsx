@@ -161,7 +161,7 @@ const LoginForm = ({
                     {item.name}
                   </>
                 }
-                textSize="text-sm font-bold text-[#1b1f1e] w-full justify-center flex gap-2"
+                textSize="text-sm font-bold text-[#1D446F]  w-full justify-center flex gap-2"
                 className="w-full cursor-pointer"
               />
             ))}
