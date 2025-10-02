@@ -132,7 +132,7 @@ const LoginForm = ({
           {/* forgot password */}
           <Link
             href="#"
-            className="text-xs text-right text-primary underline font-semibold -mt-1"
+           className="text-xs text-right font-semibold -mt-1 text-[#1D446F] underline"
           >
             {translations["forgotPassword"]}
           </Link>
@@ -161,7 +161,8 @@ const LoginForm = ({
                     {item.name}
                   </>
                 }
-                 className="text-xs text-right font-semibold -mt-1 text-[#1D446F] underline"
+                textSize="text-sm font-bold text-[#1b1f1e] w-full justify-center flex gap-2"
+                className="w-full cursor-pointer"
               />
             ))}
           </div>
