@@ -8,6 +8,8 @@ import "./globals.css";
 import { IBM_Plex_Sans } from "next/font/google";
 import Header from "@/components/Shell/Header";
 import BottomNav from "@/components/Shell/BottomNav";
+import { AppStateProvider } from "@/components/state/AppState";
+import { ToastProvider } from "@/components/ui/Toast";
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -57,9 +59,13 @@ export default async function RootLayout({
         }}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="pb-20 pt-2">{children}</main>
-          <BottomNav />
+          <AppStateProvider>
+            <ToastProvider>
+              <Header />
+              <main className="pb-20 pt-2">{children}</main>
+              <BottomNav />
+            </ToastProvider>
+          </AppStateProvider>
         </NextIntlClientProvider>
       </body>
     </html>

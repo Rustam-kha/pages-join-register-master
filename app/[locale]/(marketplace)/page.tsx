@@ -1,50 +1,39 @@
-import React from "react";
+"use client";
+import React, { useMemo, useState } from "react";
 import SearchFilters, { Filters } from "@/components/Marketplace/SearchFilters";
-import VendorCard, { Vendor } from "@/components/Marketplace/VendorCard";
+import VendorCard from "@/components/Marketplace/VendorCard";
+import { useAppState } from "@/components/state/AppState";
+import { useRouter, useParams } from "next/navigation";
 
-async function getVendors(): Promise<Vendor[]> {
-  // Mocked data for now
-  return [
-    {
-      id: "1",
-      name: "CryptoKing",
-      countryFlag: "🇺🇸",
-      rating: 4.9,
-      completion: 98,
-      paymentMethod: "Bank Transfer",
-      rate: "1 USDT = 1.02 USD",
-      markupPercent: 2,
-      range: "$10 - $1,500",
-      lastSeen: "5m ago",
-    },
-    {
-      id: "2",
-      name: "FastPay",
-      countryFlag: "🇬🇧",
-      rating: 4.7,
-      completion: 95,
-      paymentMethod: "Cash App",
-      rate: "1 USDT = 1.03 USD",
-      markupPercent: 3,
-      range: "$20 - $2,000",
-      lastSeen: "12m ago",
-    },
-  ];
-}
+export default function MarketplacePage() {
+  const { vendors, startTrade } = useAppState();
+  const [filters, setFilters] = useState<Filters>({ mode: "buy", query: "", amount: "", paymentMethod: "" });
+  const router = useRouter();
+  const params = useParams();
+  const locale = (params?.locale as string) || "en";
 
-export default async function MarketplacePage() {
-  const vendors = await getVendors();
-  const [filters, setFilters] = [
-    { mode: "buy", query: "", amount: "", paymentMethod: "" } as Filters,
-    (f: Filters) => f,
-  ];
+  const filtered = useMemo(() => {
+    return vendors.filter((v) => {
+      const matchQuery = filters.query
+        ? v.name.toLowerCase().includes(filters.query.toLowerCase()) ||
+          v.paymentMethod.toLowerCase().includes(filters.query.toLowerCase())
+        : true;
+      const matchChip = filters.paymentMethod ? v.paymentMethod.toLowerCase().includes(filters.paymentMethod) : true;
+      return matchQuery && matchChip;
+    });
+  }, [vendors, filters]);
+
+  const handleSelect = (vendorId: string) => {
+    const trade = startTrade(vendorId, 100, 102); // mock values for now
+    router.push(`/${locale}/trade/active?trade=${trade.id}`);
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 space-y-4">
       <SearchFilters value={filters} onChange={setFilters} />
       <div className="grid grid-cols-1 gap-3">
-        {vendors.map((v) => (
-          <VendorCard key={v.id} vendor={v} />
+        {filtered.map((v) => (
+          <VendorCard key={v.id} vendor={v} onSelect={() => handleSelect(v.id)} />
         ))}
       </div>
     </div>

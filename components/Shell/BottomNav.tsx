@@ -2,7 +2,7 @@
 import React from "react";
 import { Home, Wallet, MessageCircle, Users, User } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 const items = [
   { key: "home", label: "Home", icon: Home, href: (l:string)=>`/${l}` },
@@ -14,6 +14,7 @@ const items = [
 
 export default function BottomNav() {
   const params = useParams();
+  const pathname = usePathname();
   const locale = (params?.locale as string) || "en";
 
   return (
@@ -21,11 +22,17 @@ export default function BottomNav() {
       <div className="max-w-6xl mx-auto grid grid-cols-5">
         {items.map((item) => {
           const Icon = item.icon;
+          const href = item.href(locale);
+          const active = pathname?.startsWith(href);
           return (
             <Link
               key={item.key}
-              href={item.href(locale)}
-              className="flex flex-col items-center justify-center py-2 text-[12px] text-[color:var(--qt-text-secondary)] hover:text-[color:var(--qt-accent-blue)]"
+              href={href}
+              className={`flex flex-col items-center justify-center py-2 text-[12px] ${
+                active
+                  ? "text-[color:var(--qt-accent-blue)]"
+                  : "text-[color:var(--qt-text-secondary)] hover:text-[color:var(--qt-accent-blue)]"
+              }`}
             >
               <Icon size={20} />
               <span>{item.label}</span>

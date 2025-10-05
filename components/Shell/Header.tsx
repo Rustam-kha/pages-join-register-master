@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import { ShieldCheck, Wallet, Lock, Bell } from "lucide-react";
 import Card from "@/components/ui/Card";
+import { useToast } from "@/components/ui/Toast";
 
 export default function Header() {
+  const { show } = useToast();
   const [hidden, setHidden] = useState(true);
   return (
     <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/75 bg-white/90 border-b border-[color:var(--qt-gray-border)]">
@@ -17,7 +19,7 @@ export default function Header() {
             <Lock size={16} className="text-[color:var(--qt-primary-green)]" />
             <span className="hidden md:inline">Escrow Protected</span>
           </div>
-          <button className="relative">
+          <button className="relative" onClick={() => show("No new notifications") }>
             <Bell size={20} className="text-[color:var(--qt-text-primary)]" />
             <span className="absolute -top-1 -right-1 bg-[color:var(--qt-accent-blue)] text-white text-[10px] rounded-full px-1">3</span>
           </button>

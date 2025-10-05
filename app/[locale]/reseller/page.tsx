@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "@/components/ui/Card";
 import UIButton from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
+import { useToast } from "@/components/ui/Toast";
 
 interface Offer {
   id: string;
@@ -17,6 +18,7 @@ interface Offer {
 }
 
 export default function ResellerPage() {
+  const { show } = useToast();
   const [offers, setOffers] = useState<Offer[]>([
     { id: "o1", vendor: "CryptoKing", method: "Cash App", vendorMarkup: 2, myMarkup: 3, totalMarkup: 5, clicks: 213, trades: 18, earned: "$92.40" },
   ]);
@@ -61,7 +63,7 @@ export default function ResellerPage() {
                 <div className="text-[12px] text-[color:var(--qt-text-secondary)]">Clicks {o.clicks} • Trades {o.trades}</div>
                 <div className="font-semibold">Earned {o.earned}</div>
                 <div className="mt-2 flex gap-2 justify-end">
-                  <UIButton className="bg-white text-[color:var(--qt-primary-green)] border border-[color:var(--qt-gray-border)]">Copy Link</UIButton>
+                  <UIButton className="bg-white text-[color:var(--qt-primary-green)] border border-[color:var(--qt-gray-border)]" onClick={() => show("Link copied")}>Copy Link</UIButton>
                   <UIButton className="bg-white text-[color:var(--qt-primary-green)] border border-[color:var(--qt-gray-border)]">Edit</UIButton>
                   <UIButton className="bg-white text-[color:var(--qt-primary-green)] border border-[color:var(--qt-gray-border)]">Delete</UIButton>
                 </div>

@@ -1,8 +1,10 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Card from "@/components/ui/Card";
 import UIButton from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
+import { useSearchParams } from "next/navigation";
+import { useAppState } from "@/components/state/AppState";
 
 function useCountdown(seconds: number) {
   const [remain, setRemain] = useState(seconds);
@@ -16,17 +18,32 @@ function useCountdown(seconds: number) {
 }
 
 export default function ActiveTradePage() {
+  const params = useSearchParams();
+  const tradeId = params.get("trade");
+  const { trades, markPaid } = useAppState();
+  const trade = trades.find((t) => t.id === tradeId);
   const timer = useCountdown(15 * 60);
   const steps = useMemo(
     () => ["Escrow Locked", "Payment Sent", "Vendor Confirms", "Crypto Released"],
     []
   );
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!trade) return;
+    const map: Record<"locked" | "paid" | "confirmed" | "released", number> = {
+      locked: 0,
+      paid: 1,
+      confirmed: 2,
+      released: 3,
+    };
+    setCurrent(map[trade.status]);
+  }, [trade]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 space-y-4">
       <header className="flex items-center justify-between">
-        <div className="text-[14px] text-[color:var(--qt-text-secondary)]">Trade ID: #QT-39204 • Vendor: CryptoKing</div>
+        <div className="text-[14px] text-[color:var(--qt-text-secondary)]">Trade ID: {trade?.id ?? "-"} • Vendor: {trade?.vendorId ?? "-"}</div>
         <div className="text-[16px] font-semibold bg-[color:var(--qt-success-yellow)] px-3 py-1 rounded-full">⏳ {timer}</div>
       </header>
 
@@ -34,11 +51,11 @@ export default function ActiveTradePage() {
         <div className="grid grid-cols-2 gap-3">
           <div>
             <div className="text-[12px] text-[color:var(--qt-text-secondary)]">Crypto</div>
-            <div className="text-[18px] font-semibold">350 USDT</div>
+            <div className="text-[18px] font-semibold">{trade?.amountCrypto ?? 0} USDT</div>
           </div>
           <div>
             <div className="text-[12px] text-[color:var(--qt-text-secondary)]">Fiat</div>
-            <div className="text-[18px] font-semibold">$357.00</div>
+            <div className="text-[18px] font-semibold">${trade?.amountFiat ?? 0}</div>
           </div>
           <div className="col-span-2">
             <Badge variant="active">Escrow Locked</Badge>
@@ -66,7 +83,7 @@ export default function ActiveTradePage() {
           </div>
           <div className="flex gap-2">
             <UIButton className="bg-white text-[color:var(--qt-primary-green)] border border-[color:var(--qt-gray-border)]">Upload Proof</UIButton>
-            <UIButton onClick={() => setCurrent(2)}>I&apos;ve Paid</UIButton>
+            <UIButton onClick={() => trade && markPaid(trade.id)}>I&apos;ve Paid</UIButton>
           </div>
         </div>
       </Card>

@@ -2,8 +2,10 @@ import React from "react";
 import Card from "@/components/ui/Card";
 import UIButton from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
+import { useToast } from "@/components/ui/Toast";
 
 export default function AffiliatePage() {
+  const { show } = useToast();
   const referrals = [
     { id: "u1", name: "AL", joined: "2025-09-10", trades: 12, earnings: "$34.50", active: true },
     { id: "u2", name: "BK", joined: "2025-09-20", trades: 0, earnings: "$0.00", active: false },
@@ -50,8 +52,8 @@ export default function AffiliatePage() {
             <div className="text-[14px] font-medium">https://qictrader.com/r/QT-9X2K</div>
           </div>
           <div className="flex gap-2">
-            <UIButton className="bg-white text-[color:var(--qt-primary-green)]">Copy</UIButton>
-            <UIButton>Share</UIButton>
+            <UIButton className="bg-white text-[color:var(--qt-primary-green)]" onClick={() => { navigator.clipboard.writeText("https://qictrader.com/r/QT-9X2K"); show("Copied!"); }}>Copy</UIButton>
+            <UIButton onClick={async () => { try { await navigator.share?.({ title: "QicTrader", url: "https://qictrader.com/r/QT-9X2K" }); } catch { /* ignore */ } }}>Share</UIButton>
           </div>
         </div>
       </Card>

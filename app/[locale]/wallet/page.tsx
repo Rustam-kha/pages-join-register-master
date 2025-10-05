@@ -1,11 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Card from "@/components/ui/Card";
 import UIButton from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import { Eye, EyeOff, ArrowDownLeft, ArrowUpRight } from "lucide-react";
 
 export default function WalletPage() {
-  const hidden = true;
+  const [hidden, setHidden] = useState(true);
   const assets = [
     { symbol: "BTC", name: "Bitcoin", balance: 0.245, fiat: "$16,820", change: "+2.1%" },
     { symbol: "USDT", name: "Tether", balance: 1543.12, fiat: "$1,543.12", change: "+0.0%" },
@@ -23,7 +24,7 @@ export default function WalletPage() {
             <div className="text-[12px] opacity-90">Total Balance</div>
             <div className="text-[24px] font-bold">{hidden ? "•••••" : "$12,450.00"}</div>
           </div>
-          <button className="underline text-[12px] flex items-center gap-1">
+          <button className="underline text-[12px] flex items-center gap-1" onClick={() => setHidden((v)=>!v)}>
             {hidden ? <Eye size={16}/> : <EyeOff size={16}/>} {hidden ? "Show" : "Hide"}
           </button>
         </div>
