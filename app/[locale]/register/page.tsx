@@ -2,7 +2,6 @@ import LocaleSwitcher from "@/components/LocaleSwitcher";
 import Logo from "@/components/Logo";
 import RegisterForm from "@/components/RegisterForm";
 import { getTranslations } from "next-intl/server";
-import { before } from "node:test";
 import React, { Suspense } from "react";
 
 const page = async ({ params }: { params: Promise<{ locale: string }> }) => {

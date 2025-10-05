@@ -1,38 +1,106 @@
 @import "tailwindcss";
 
+/* QicTrader Design Tokens */
 :root {
-  --background: #031845;
-  --foreground: #171717;
-  --formBG: #ffffff;
-  --primary: #0766b9;
+  /* Brand Colors */
+  --qt-primary-green: #154D71;
+  --qt-secondary-teal: #1C6EA4;
+  --qt-accent-blue: #33A1E0;
+  --qt-success-yellow: #FFF9AF;
+
+  /* Grays */
+  --qt-gray-bg: #F9FAFB;
+  --qt-gray-border: #E5E7EB;
+  --qt-text-primary: #111827;
+  --qt-text-secondary: #6B7280;
+
+  /* Radii */
+  --qt-radius-card: 12px;
+  --qt-radius-button: 8px;
+  --qt-radius-card-lg: 16px;
+
+  /* Typography (system stack) */
+  --qt-font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --qt-h1: 24px;
+  --qt-h2: 20px;
+  --qt-h3: 18px;
+  --qt-body: 14px;
+  --qt-body-sm: 12px;
+  --qt-body-lg: 16px;
+
+  /* Surfaces */
+  --qt-surface: #FFFFFF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-formBG: var(--formBG);
-  --color-primary: var(--primary);
-  /* --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono); */
-  --font-ibm: var(--font-ibm-plex-sans);
-}
+  /* Expose tokens to Tailwind color utilities */
+  --color-primary: var(--qt-accent-blue);
+  --color-primary-green: var(--qt-primary-green);
+  --color-secondary: var(--qt-secondary-teal);
+  --color-success-yellow: var(--qt-success-yellow);
+  --color-gray-bg: var(--qt-gray-bg);
+  --color-gray-border: var(--qt-gray-border);
+  --color-text: var(--qt-text-primary);
+  --color-text-secondary: var(--qt-text-secondary);
+  --color-surface: var(--qt-surface);
+  --color-formBG: var(--qt-surface);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #031845;
-    --foreground: #171717;
-    --primary: #0766b9;
-    /* --primaryr: #0766b9e0; */
-  }
+  --radius-card: var(--qt-radius-card);
+  --radius-button: var(--qt-radius-button);
+  --radius-card-lg: var(--qt-radius-card-lg);
+
+  --font-sans: var(--qt-font-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--qt-gray-bg);
+  color: var(--qt-text-primary);
+  font-family: var(--qt-font-sans);
 }
 
-/* hide scroll bar on every browser */
-::-webkit-scrollbar {
-  display: none;
+/* Utilities */
+.card {
+  background: var(--qt-surface);
+  border: 1px solid var(--qt-gray-border);
+  border-radius: var(--qt-radius-card);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
+
+.btn {
+  min-height: 44px;
+  padding: 12px 24px;
+  border-radius: var(--qt-radius-button);
+  transition: transform 0.1s ease;
+}
+.btn:active { transform: scale(0.95); }
+
+.btn-primary {
+  background: var(--qt-accent-blue);
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--qt-primary-green);
+  border: 1px solid var(--qt-primary-green);
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--qt-secondary-teal);
+}
+
+.badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+.badge-success { background: #DCFCE7; color: #166534; }
+.badge-pending { background: #FEF9C3; color: #854D0E; }
+.badge-failed { background: #FEE2E2; color: #991B1B; }
+.badge-active { background: #DBEAFE; color: #1D4ED8; }
+
+/* hide scroll bar on every browser */
+::-webkit-scrollbar { display: none; }

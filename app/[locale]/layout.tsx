@@ -6,6 +6,8 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import { IBM_Plex_Sans } from "next/font/google";
+import Header from "@/components/Shell/Header";
+import BottomNav from "@/components/Shell/BottomNav";
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -55,7 +57,9 @@ export default async function RootLayout({
         }}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Header />
+          <main className="pb-20 pt-2">{children}</main>
+          <BottomNav />
         </NextIntlClientProvider>
       </body>
     </html>
